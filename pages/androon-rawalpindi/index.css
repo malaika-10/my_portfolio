@@ -84,3 +84,14 @@ body:has(.image-viewer[open]) { overflow: hidden; }
 .video-slide-border { position: absolute; inset: 0 0 auto; height: 9%; background: url("../../assets/images/androon-rawalpindi/textile-border.webp") center / auto 250% repeat-x; }
 .rickshaw-video-panel { position: relative; }
 .rickshaw-video-frame { position: absolute; left: 53.65%; top: 31.9%; width: 40.2%; height: 54.7%; line-height: normal; }
+
+/* Original PDF portraits are removed from the background before adding GIFs. */
+.drivers-panel { position: relative; overflow: hidden; }
+.driver-animation { position: absolute; padding: 0; border: 0; background: transparent; cursor: zoom-in; line-height: 0; }
+.driver-animation img { display: block; width: 100%; height: auto; }
+.driver-animation--baba { left: 17.95%; top: -2.31%; width: 21.52%; }
+.driver-animation--rashid { left: 40.18%; top: -3.59%; width: 22.55%; }
+.driver-animation--saad { left: 62.22%; top: -2.31%; width: 21.96%; }
+.driver-animation:focus-visible { outline: 2px solid #d6af52; outline-offset: -2px; }
+
+.drivers-panel > img { display: block; width: 100%; height: auto; }

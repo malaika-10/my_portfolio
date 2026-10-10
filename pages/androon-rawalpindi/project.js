@@ -5,7 +5,7 @@ const viewerCaption = viewer.querySelector('.image-viewer__caption');
 for (const button of document.querySelectorAll('[data-lightbox]')) {
   button.addEventListener('click', () => {
     const image = button.querySelector('img');
-    viewerImage.src = image.src.replace('.webp', '-hd.webp');
+    viewerImage.src = image.src.includes('/hd-layout/') ? image.src.replace('.webp', '-hd.webp') : image.src;
     viewerImage.alt = image.alt;
     viewerCaption.textContent = image.alt;
     viewer.showModal();

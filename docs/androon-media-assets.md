@@ -42,3 +42,12 @@ pause offscreen, and have independent unmute/mute buttons and native controls.
 Both players use `controlslist="nodownload"` to hide the browser download option.
 The decorative VR glasses graphic was removed from the introduction video slide;
 the actor's headset remains part of the supplied video footage.
+
+## Looping videos and animated drivers
+
+Both videos loop while visible and start muted. The three driver GIFs are served
+as transparent animated WebP files, preserving their 40 ms frames and infinite
+loop while reducing download sizes. The three large static portraits were
+removed as PDF image objects before rendering a clean driver background from
+the earlier export. Decorative frames, small turnaround views and text remain.
+The animated portraits scale with the panel and open individually in the viewer.
