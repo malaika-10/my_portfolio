@@ -1,7 +1,7 @@
 # Galiyan Pindi Diyan — high-resolution project panels
 
-The project page uses all three canvases from the 26 MB PDF uploaded on October 10,
-2026, as 30 contiguous full-width panels. Each panel has a 1537px responsive version
+The project page uses the first two canvases from the 26 MB PDF uploaded on October 10,
+2026, as 24 contiguous full-width panels. Each panel has a 1537px responsive version
 and a 3074px HD version. Larger displays and the image viewer use the HD files.
 The Canva embed and alternate readable layout are removed.
 
@@ -18,7 +18,8 @@ current panels:
 - `canvas-1-01` through `canvas-1-20`: introduction through game flow.
 - `canvas-2-01` through `canvas-2-04`: environment design, details, VR experience,
   and rickshaw.
-- `canvas-3-01` through `canvas-3-06`: full-size prototype screens.
+The final six prototype slides, beginning with “Begin journey”, were removed
+from the page at the user’s request. Their files remain available for future use.
 
 Use H.264 MP4 for video; specify whether each clip should loop silently or use
 playback controls. Provide a poster image or identify the still to retain. A PDF
