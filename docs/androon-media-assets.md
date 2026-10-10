@@ -51,3 +51,11 @@ loop while reducing download sizes. The three large static portraits were
 removed as PDF image objects before rendering a clean driver background from
 the earlier export. Decorative frames, small turnaround views and text remain.
 The animated portraits scale with the panel and open individually in the viewer.
+
+## Project overview glasses motion
+
+The overview panel uses a background rendered with the original headset image
+object removed, plus the transparent headset extracted from the PDF. The headset
+rotates from -10 to +10 degrees around its center in a 20-second continuous cycle.
+The same layered animation appears in the enlarged viewer. Visitors requesting
+reduced motion see a stationary headset. Position and size scale with the slide.

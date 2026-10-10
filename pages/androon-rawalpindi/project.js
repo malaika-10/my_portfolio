@@ -1,11 +1,19 @@
 const viewer = document.querySelector('.image-viewer');
 const viewerImage = viewer.querySelector('img');
+const viewerArtwork = document.createElement('div');
+viewerArtwork.className = 'image-viewer__artwork';
+viewerImage.before(viewerArtwork);
+viewerArtwork.append(viewerImage);
 const viewerCaption = viewer.querySelector('.image-viewer__caption');
 
 for (const button of document.querySelectorAll('[data-lightbox]')) {
   button.addEventListener('click', () => {
     const image = button.querySelector('img');
     viewerImage.src = image.src.includes('/hd-layout/') ? image.src.replace('.webp', '-hd.webp') : image.src;
+    viewerArtwork.querySelector('.overview-glasses')?.remove();
+    const glasses = button.querySelector('.overview-glasses');
+    viewerArtwork.classList.toggle('image-viewer__artwork--overview', Boolean(glasses));
+    if (glasses) viewerArtwork.append(glasses.cloneNode(true));
     viewerImage.alt = image.alt;
     viewerCaption.textContent = image.alt;
     viewer.showModal();
@@ -23,6 +31,8 @@ viewer.addEventListener('click', (event) => {
 });
 viewer.addEventListener('close', () => {
   viewerImage.removeAttribute('src');
+  viewerArtwork.querySelector('.overview-glasses')?.remove();
+  viewerArtwork.classList.remove('image-viewer__artwork--overview');
 });
 
 

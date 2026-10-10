@@ -95,3 +95,20 @@ body:has(.image-viewer[open]) { overflow: hidden; }
 .driver-animation:focus-visible { outline: 2px solid #d6af52; outline-offset: -2px; }
 
 .drivers-panel > img { display: block; width: 100%; height: auto; }
+
+.overview-panel .pdf-panel__zoom { position: relative; overflow: hidden; }
+.pdf-panel__zoom .overview-glasses, .image-viewer .overview-glasses {
+ position: absolute; left: 28.403%; top: 6.948%; width: 44.143%; height: auto;
+ transform-origin: 50% 50%; animation: vr-gentle-sway 20s ease-in-out infinite;
+ pointer-events: none;
+}
+@keyframes vr-gentle-sway {
+ 0%, 100% { transform: rotate(-10deg); }
+ 50% { transform: rotate(10deg); }
+}
+.image-viewer__artwork { position: relative; }
+.image-viewer__artwork--overview { width: min(100%, calc(75svh * 1537 / 864)); margin-inline: auto; }
+.image-viewer__artwork--overview > img:first-child { display: block; width: 100%; max-height: none; }
+@media (prefers-reduced-motion: reduce) {
+ .pdf-panel__zoom .overview-glasses, .image-viewer .overview-glasses { animation: none; transform: none; }
+}
