@@ -17,20 +17,17 @@
 <body>
 
   <!-- ============ Navbar ============ -->
-  <header class="navbar">
+  <header class="navbar navbar--home">
     <div class="container navbar__inner">
-      <a href="#" class="navbar__logo">MALAIKA</a>
-
-      <nav>
+      <nav aria-label="Main navigation">
         <ul class="navbar__links">
-          <li><a href="#projects">Work</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#projects">Work</a></li>
           <li><a href="#connect">Contact</a></li>
         </ul>
       </nav>
 
       <div class="navbar__actions">
-        <a href="https://www.linkedin.com/in/malaika-maqsood-76a588221/" target="_blank" rel="noopener" class="navbar__social" aria-label="LinkedIn">in</a>
         <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -40,42 +37,17 @@
 
   <main>
     <!-- ============ Hero ============ -->
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__content reveal">
-          <span class="eyebrow">Interaction / Visual / Motion</span>
-          <h1 class="hero__name">Malaika Maqsood</h1>
-          <p class="hero__tagline">
-            I create interactive stories, playful learning experiences and meaningful
-            visuals through research, motion and design.
-          </p>
-
-          <div class="hero__actions">
-            <a href="#projects" class="btn btn-primary">Explore My Work</a>
-            <span class="hero__scroll-hint">↓ Scroll to explore</span>
-          </div>
-
-          <div class="hero__stats">
-            <div>
-              <div class="hero__stat-value">05+</div>
-              <div class="hero__stat-label">Years of Practice</div>
-            </div>
-            <div>
-              <div class="hero__stat-value">20+</div>
-              <div class="hero__stat-label">Projects Completed</div>
-            </div>
-            <div>
-              <div class="hero__stat-value">10+</div>
-              <div class="hero__stat-label">Happy Clients</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero__visual reveal">
-          <img src="assets/images/hero.jpg" alt="Sunlit historic archway, evoking the heritage stories Malaika designs around" loading="eager" />
-          <div class="hero__visual-frame"></div>
-        </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="hero__backdrop" aria-hidden="true">MALAIKA</span>
+      <div class="hero__identity">
+        <p class="hero__role">Interaction Designer</p>
+        <h1 class="hero__name" id="hero-title">Malaika</h1>
       </div>
+      <p class="hero__intro">
+        Hi, I’m Malaika. I like asking myself “What if?” and then turning that idea into something visual, interactive, or
+        unexpected. I’m a 2D &amp; 3D Animator and Designer exploring Interaction Design and creating experiences that
+        connect ideas with people.
+      </p>
     </section>
 
     <!-- ============ About ============ -->
