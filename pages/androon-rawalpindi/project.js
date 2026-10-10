@@ -24,22 +24,3 @@ viewer.addEventListener('click', (event) => {
 viewer.addEventListener('close', () => {
   viewerImage.removeAttribute('src');
 });
-
-const layoutToggle = document.querySelector('.layout-toggle');
-const mobileLayout = window.matchMedia('(max-width: 640px)');
-let preferredLayout = null;
-
-function updateLayout() {
-  const readable = preferredLayout ? preferredLayout === 'readable' : mobileLayout.matches;
-  document.body.classList.toggle('readable-layout', readable);
-  document.body.classList.toggle('original-layout', !readable);
-  layoutToggle.textContent = readable ? 'View original design' : 'View readable layout';
-  layoutToggle.setAttribute('aria-pressed', String(readable));
-}
-
-layoutToggle.addEventListener('click', () => {
-  preferredLayout = document.body.classList.contains('readable-layout') ? 'original' : 'readable';
-  updateLayout();
-});
-mobileLayout.addEventListener('change', updateLayout);
-updateLayout();
