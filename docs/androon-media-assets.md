@@ -33,3 +33,12 @@ in its existing video area. The supplied Drive video was encoded as a 1080p
 H.264/AAC MP4 with fast-start metadata. It starts muted, plays inline when visible,
 and pauses when scrolled out of view. Native controls and a separate Unmute/Mute
 button allow visitors to control playback and audio.
+
+## Video 02 and player updates
+
+The rickshaw panel (`canvas-2-04`) now plays `assets/videos/rickshaw-tour.mp4`
+inside the existing yellow frame. Both videos autoplay muted when visible,
+pause offscreen, and have independent unmute/mute buttons and native controls.
+Both players use `controlslist="nodownload"` to hide the browser download option.
+The decorative VR glasses graphic was removed from the introduction video slide;
+the actor's headset remains part of the supplied video footage.

@@ -25,18 +25,21 @@ viewer.addEventListener('close', () => {
   viewerImage.removeAttribute('src');
 });
 
-const introVideo = document.querySelector('#vr-intro-video');
-const soundToggle = document.querySelector('.video-sound-toggle');
-introVideo.muted = true;
-soundToggle.addEventListener('click', () => { introVideo.muted = !introVideo.muted; });
-introVideo.addEventListener('volumechange', () => {
-  soundToggle.textContent = introVideo.muted ? 'Unmute' : 'Mute';
-  soundToggle.setAttribute('aria-label', introVideo.muted ? 'Unmute introduction video' : 'Mute introduction video');
-});
-if ('IntersectionObserver' in window) {
-  const videoObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) { introVideo.play().catch(() => {}); }
-    else { introVideo.pause(); }
-  }, { threshold: 0.3 });
-  videoObserver.observe(introVideo);
+
+for (const video of document.querySelectorAll('video')) {
+  const soundToggle = video.parentElement.querySelector('.video-sound-toggle');
+  const label = video.id === 'vr-intro-video' ? 'introduction video' : 'rickshaw video';
+  video.muted = true;
+  soundToggle.addEventListener('click', () => { video.muted = !video.muted; });
+  video.addEventListener('volumechange', () => {
+    soundToggle.textContent = video.muted ? 'Unmute' : 'Mute';
+    soundToggle.setAttribute('aria-label', `${video.muted ? 'Unmute' : 'Mute'} ${label}`);
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { video.play().catch(() => {}); }
+      else { video.pause(); }
+    }, { threshold: 0.3 });
+    observer.observe(video);
+  }
 }
