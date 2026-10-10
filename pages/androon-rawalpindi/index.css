@@ -231,3 +231,49 @@ body:has(.image-viewer[open]) { overflow: hidden; }
   .facts-grid, .interaction-grid { grid-template-columns: 1fr; }
   #experience .gallery, #game-flow .gallery { grid-template-columns: 1fr; }
 }
+
+/* Original Canva composition. Each panel is a lossless-layout PDF render;
+   unlike reconstructed grids, this preserves every overlay and decorative element. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.pdf-layout { max-width: 1600px; margin-inline: auto; }
+.pdf-panel { margin: 0; padding: 0; line-height: 0; }
+.pdf-panel__zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #111;
+  cursor: zoom-in;
+}
+.pdf-panel__zoom img { display: block; width: 100%; height: auto; }
+.pdf-panel__zoom:focus-visible { outline-offset: -4px; }
+.responsive-layout { display: none; }
+.layout-toggle {
+  font: inherit;
+  font-size: 0.8rem;
+  color: #dfb450;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #dfb45080;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+body.readable-layout .pdf-layout { display: none; }
+body.readable-layout .responsive-layout { display: block; }
+@media (max-width: 640px) {
+  .project-nav { flex-wrap: nowrap; }
+  .pdf-layout { display: none; }
+  .responsive-layout { display: block; }
+  body.original-layout .pdf-layout { display: block; }
+  body.original-layout .responsive-layout { display: none; }
+}

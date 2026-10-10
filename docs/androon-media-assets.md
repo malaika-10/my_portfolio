@@ -1,7 +1,10 @@
 # Galiyan Pindi Diyan — motion asset handoff
 
 The complete case study is one scrolling page at `pages/androon-rawalpindi/`.
-All three PDF canvases are incorporated. The PDF provides still frames, not playable
+All three PDF canvases are incorporated. Desktop now defaults to the exact original
+Canva composition, rendered directly from the supplied PDF as 30 contiguous panels.
+The readable HTML layout remains available through the view toggle and is the
+default on mobile; mobile visitors can also view and enlarge the original design. The PDF provides still frames, not playable
 video or animated GIF data. Current figures use optimized WebP images extracted
 from the supplied PDF, and can be enlarged.
 
