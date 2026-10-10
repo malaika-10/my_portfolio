@@ -43,34 +43,25 @@ body {
   font-size: 0.75rem; color: #b9b1a5;
 }
 
-/* Original PDF artwork scales proportionally at every viewport width. */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-.pdf-layout { max-width: 1600px; margin-inline: auto; }
-.pdf-panel { margin: 0; padding: 0; line-height: 0; }
-.pdf-panel__zoom {
-  display: block;
+/* Preserve the aspect ratio supplied by Canva while fitting the page width. */
+.canva-project { width: 100%; max-width: 1600px; margin-inline: auto; }
+.canva-embed {
+  position: relative;
   width: 100%;
-  padding: 0;
-  border: 0;
+  height: 0;
+  padding-top: 1124.4510%;
+  overflow: hidden;
   background: #111;
-  cursor: zoom-in;
 }
-.pdf-panel__zoom img { display: block; width: 100%; height: auto; }
-.pdf-panel__zoom:focus-visible { outline-offset: -4px; }
-
-.image-viewer { width: 95vw; max-width: 1500px; max-height: 95svh; border: 1px solid #dfb45066; border-radius: 0.5rem; margin: auto; padding: 3.5rem 1rem 1rem; background: #0b0a08; color: #fff; }
-.image-viewer::backdrop { background: #000e; }
-.image-viewer img { width: 100%; height: auto; max-height: 75svh; object-fit: contain; }
-.image-viewer__close { position: absolute; top: 0.5rem; right: 0.5rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid #dfb45099; background: #0b0a08; color: #fff; font-size: 1.8rem; cursor: pointer; }
-.image-viewer__caption { padding-top: 1rem; text-align: center; font-size: 0.85rem; }
-body:has(.image-viewer[open]) { overflow: hidden; }
+.canva-embed iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.canva-credit { padding: 1rem 1.25rem; font-size: 0.8rem; text-align: center; }
+.canva-credit a { color: #dfb450; }
+.canva-credit a:hover { text-decoration: underline; }

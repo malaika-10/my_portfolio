@@ -1,44 +1,16 @@
-# Galiyan Pindi Diyan — motion asset handoff
+# Galiyan Pindi Diyan — Canva embed
 
-The complete case study is one scrolling page at `pages/androon-rawalpindi/`.
-All three PDF canvases are incorporated as 30 contiguous original-design panels.
-The same design scales to desktop and mobile, with image enlargement available.
-The PDF provides still frames, not playable
-video or animated GIF data. Current figures use optimized WebP images extracted
-from the supplied PDF, and can be enlarged.
+The project page at `pages/androon-rawalpindi/` now displays the Canva-hosted
+design using the embed URL supplied by Malaika. The container preserves Canva’s
+1124.4510% aspect ratio and scales to the viewport width.
 
-## What to upload
+Keep the Canva design publicly viewable and embedding enabled. Canva controls
+image quality, page navigation, GIF/video availability and playback inside the
+iframe. Browser autoplay policy still applies. Updates to the published Canva
+design are served by Canva; republishing a replacement design may require a new
+embed URL. The page also provides a direct Canva link if the embed cannot load.
 
-Provide the original MP4 or GIF for each animated element in the Canva design.
-Name each file by its corresponding section, and include a short placement list.
-These are the relevant sections to check in Canva; the PDF alone cannot establish
-which of them originally contain motion:
-
-| Page section | Suggested file name | Placement |
-| --- | --- | --- |
-| Concept development | `concept-film.mp4` | Original 3D animated film artwork |
-| Behind the characters | `character-model-01.mp4` etc. | The matching Blender model or turnaround figure |
-| Route system | `street-scene-01.mp4` etc. | Matching street-scene figure |
-| Game flow | `game-flow.mp4` | Overview of the six prototype screens |
-| Environment design / Details | `environment-model-01.mp4` or `environment-detail-01.mp4` etc. | Matching Blender screenshot |
-| Inside the experience | `vr-experience.mp4` | Player wearing a headset |
-| The rickshaw | `rickshaw-model-01.mp4` etc. | Rickshaw model views or street sequence |
-| Prototype screens | `prototype-01.mp4` etc. | Matching full-width game screen |
-
-Upload only the sections that actually have animations; static images are already
-included. For any additional animated element, supply its section title and a
-screenshot identifying its location.
-
-Prefer MP4 with H.264 video and AAC audio. Silent looping animations can be MP4
-instead of GIF for smaller downloads. Supply any original GIF if that is the only
-available source. Retain the original aspect ratio and provide a JPG/PNG poster
-for each video, or identify the existing still to use as its poster.
-
-For each asset, specify whether it should play with controls or loop silently.
-Provide captions as WebVTT or a transcript when speech communicates project
-information. Respect reduced-motion preferences for animated decorative content.
-Do not autoplay audible video. Use native video controls for narrated clips and
-allow users to pause looping animations.
-
-Keep each chat upload below 32 MiB, or share a supported direct-download source.
-Do not embed Canva authentication or credentials in the site.
+No separate media uploads are needed for assets that Canva already serves inside
+the embed. Native videos outside the iframe would still require original files.
+The previously extracted PDF assets are retained, but the detail page no longer
+loads them. The homepage continues to use the existing project thumbnail.
