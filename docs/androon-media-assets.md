@@ -25,3 +25,11 @@ Use H.264 MP4 for video; specify whether each clip should loop silently or use
 playback controls. Provide a poster image or identify the still to retain. A PDF
 alone contains no playable GIF/video data. Replacing a region inside a panel may
 require a clean still/background or a re-export with that region removed.
+
+## Added introduction video
+
+The VR experience panel (`canvas-2-03`) now plays `assets/videos/intro-vr.mp4`
+in its existing video area. The supplied Drive video was encoded as a 1080p
+H.264/AAC MP4 with fast-start metadata. It starts muted, plays inline when visible,
+and pauses when scrolled out of view. Native controls and a separate Unmute/Mute
+button allow visitors to control playback and audio.

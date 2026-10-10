@@ -24,3 +24,19 @@ viewer.addEventListener('click', (event) => {
 viewer.addEventListener('close', () => {
   viewerImage.removeAttribute('src');
 });
+
+const introVideo = document.querySelector('#vr-intro-video');
+const soundToggle = document.querySelector('.video-sound-toggle');
+introVideo.muted = true;
+soundToggle.addEventListener('click', () => { introVideo.muted = !introVideo.muted; });
+introVideo.addEventListener('volumechange', () => {
+  soundToggle.textContent = introVideo.muted ? 'Unmute' : 'Mute';
+  soundToggle.setAttribute('aria-label', introVideo.muted ? 'Unmute introduction video' : 'Mute introduction video');
+});
+if ('IntersectionObserver' in window) {
+  const videoObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) { introVideo.play().catch(() => {}); }
+    else { introVideo.pause(); }
+  }, { threshold: 0.3 });
+  videoObserver.observe(introVideo);
+}
