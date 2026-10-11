@@ -1,0 +1,15 @@
+.navbar--home .navbar__inner { justify-content: space-between; gap: 2rem; }
+.navbar__brand { color: #f5f3ef; font-family: ProfilePoppins, sans-serif; font-size: clamp(1rem, 1.5vw, 1.35rem); font-weight: 700; letter-spacing: .13em; flex-shrink: 0; position: relative; z-index: 101; }
+.navbar__brand span { color: #e4d0a9; }
+#about, #design-approach, #connect { scroll-margin-top: 100px; }
+.about { background: linear-gradient(145deg, #121315, #1b1c1e); }
+.about__grid { display: block; }
+.about__intro, .about .section-header__title { max-width: none; width: 100%; }
+.about__skills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.about__stats { justify-content: space-between; max-width: 750px; }
+.connect__grid { align-items: center; }
+.connect__artist { position: relative; width: min(100%, 420px); justify-self: center; line-height: 0; }
+.connect__artist video { display: none; }
+.connect__artist-canvas { display: block; width: 100%; height: auto; }
+@media (max-width: 860px) { .navbar--home .navbar__inner { gap: 1rem; }.about__skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .about__skills { grid-template-columns: 1fr; }.about__stats { gap: 1rem; flex-wrap: wrap; }.connect__artist { width: min(100%, 340px); } }

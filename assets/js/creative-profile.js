@@ -2,7 +2,6 @@
   const rig = document.querySelector('.artist-rig');
   if (!rig) return;
   const pupils = [...rig.querySelectorAll('.artist-rig__pupil')];
-  const button = document.querySelector('.creative-profile__motion');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches;
   let targetX = 0, targetY = 0, currentX = 0, currentY = 0, frame = 0;
@@ -18,7 +17,6 @@
     }
   };
   const aim = (x, y) => { targetX = x; targetY = y; if (!frame) frame = requestAnimationFrame(draw); };
-  const updateButton = () => { button.textContent = paused ? 'Enable eye tracking' : 'Pause eye tracking'; button.setAttribute('aria-pressed', String(paused)); };
   window.addEventListener('pointermove', event => {
     if (paused) return;
     const rect = rig.getBoundingClientRect();
@@ -33,7 +31,6 @@
   }, { passive: true });
   document.documentElement.addEventListener('pointerleave', () => aim(0, 0));
   window.addEventListener('blur', () => aim(0, 0));
-  button.addEventListener('click', () => { paused = !paused; aim(0, 0); updateButton(); });
-  reduced.addEventListener('change', event => { paused = event.matches; aim(0, 0); updateButton(); });
-  updateButton();
+  reduced.addEventListener('change', event => { paused = event.matches; aim(0, 0); });
+
 })();
