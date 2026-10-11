@@ -13,3 +13,19 @@
 .connect__artist-canvas { display: block; width: 100%; height: auto; }
 @media (max-width: 860px) { .navbar--home .navbar__inner { gap: 1rem; }.about__skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 540px) { .about__skills { grid-template-columns: 1fr; }.about__stats { gap: 1rem; flex-wrap: wrap; }.connect__artist { width: min(100%, 340px); } }
+/* Bring the illustrations flush to their section boundaries. */
+.creative-profile { padding-bottom: 0; }
+.creative-profile__grid { align-items: stretch; }
+.creative-profile__character { align-self: end; }
+.about.section { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+.about__intro { max-width: 68ch; margin-top: 1.25rem; line-height: 1.75; }
+.connect.section { padding-bottom: 0; }
+.connect__grid { align-items: stretch; }
+.connect__intro { align-self: center; padding-block: 2rem; }
+.connect__artist { align-self: end; }
+@media (max-width: 640px) {
+ .creative-profile__character { grid-row: 2; }
+ .creative-profile__grid { row-gap: 2rem; }
+ .creative-profile__experience, .creative-profile__tools { padding-bottom: 0; }
+ .connect__intro { padding-bottom: 1rem; }
+}

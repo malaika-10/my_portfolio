@@ -15,7 +15,17 @@ Only requestAnimationFrame updates while movement is settling; no continuous loo
 runs after the pupils reach their target. The text is real HTML and remains readable
 without JavaScript.
 
-The contact section displays the uploaded MP4 through a transparent canvas.
-An olive-green color key and edge spill correction remove its backdrop at playback
-time; no alpha channel is claimed in the source MP4. The silent video loops while
-visible, pauses offscreen, and shows a still frame for reduced-motion preferences.
+The contact section uses a 720 × 1280 canvas, matching the original video
+resolution. An offline foreground mask (U2NetP with color-key refinement near
+the silhouette, connected-background removal, and edge spill correction) is
+packed beside the RGB frames into contact-artist-matted.mp4. WebGL samples
+the color and mask from the same decoded frame and composites the transparent
+character; a Canvas 2D fallback handles devices without WebGL. The MP4 itself
+has a synchronized grayscale matte rather than an alpha-channel codec.
+The source video and generated intermediate original remain unchanged.
+
+The silent video loops while visible, pauses offscreen, and shows a still frame
+for reduced-motion preferences. Both homepage character sections have no bottom
+padding, and the profile character moves below the text columns on phones so it
+still meets the section boundary. The design-approach section uses a 68ch paragraph
+with additional heading separation and smaller top padding.
