@@ -29,3 +29,21 @@
  .creative-profile__experience, .creative-profile__tools { padding-bottom: 0; }
  .connect__intro { padding-bottom: 1rem; }
 }
+/* Arched bronze window, matching the approved contact-section mockup. */
+.connect__artist {
+ padding: clamp(9px, 1vw, 13px) clamp(9px, 1vw, 13px) 0;
+ border: 2px solid #bf8752;
+ border-bottom: 0;
+ border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+ background: linear-gradient(105deg, #3c291c 0%, #ae794d 8%, #503723 22%, #61402a 75%, #b68658 94%, #3b291d 100%);
+ box-shadow: inset 0 0 0 1px #efc49855, 0 0 0 1px #130e0b, 0 12px 40px #0005;
+}
+.connect__artist-window {
+ position: relative;
+ overflow: hidden;
+ border: 2px solid #e0b482;
+ border-bottom-width: 3px;
+ border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+ background: radial-gradient(ellipse at 50% 30%, #30251e, #171513 65%, #101112);
+ box-shadow: inset 0 0 20px #0008, 0 0 0 2px #281c14;
+}

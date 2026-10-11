@@ -29,3 +29,8 @@ for reduced-motion preferences. Both homepage character sections have no bottom
 padding, and the profile character moves below the text columns on phones so it
 still meets the section boundary. The design-approach section uses a 68ch paragraph
 with additional heading separation and smaller top padding.
+
+The contact animation is now enclosed in the approved arched bronze window.
+Two curved frame borders surround a clipped dark interior, hiding the rectangular
+video bounds. CSS gradients create the bronze bevel without image assets. The
+frame scales with the character and its base stays flush with the section bottom.
