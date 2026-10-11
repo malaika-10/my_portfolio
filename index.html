@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/creative-profile.css?v=1">
 </head>
 <body>
 
@@ -48,6 +49,38 @@
         unexpected. I’m a 2D &amp; 3D Animator and Designer exploring Interaction Design and creating experiences that
         connect ideas with people.
       </p>
+    </section>
+
+    <!-- ============ Creative profile ============ -->
+    <section class="creative-profile" aria-label="Education, experience and creative tools">
+      <div class="creative-profile__grid">
+        <div class="creative-profile__experience">
+          <svg class="creative-profile__magnifier" viewBox="0 0 100 150" aria-hidden="true"><circle cx="52" cy="46" r="33" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="52" cy="46" r="24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M43 80L30 130" stroke="currentColor" stroke-width="14" stroke-linecap="round"/><path d="M9 111Q2 139 29 142L54 135Q68 123 53 115L31 111" fill="currentColor"/></svg>
+          <div><h2>Education</h2><p class="creative-profile__date">2020 – 2024</p><h3>Bachelors in<br>Computer Arts</h3><p>Major: 3D Animation</p></div>
+          <div class="creative-profile__work"><h2>Work experience</h2><p class="creative-profile__date">2022 – 2026</p><ul><li>Veloster Technologies</li><li>CortechSols</li><li>Mediatiz Foundation</li></ul><p>With 4+ years of experience, I’ve worked with Veloster Technologies, CortechSols, and Mediatiz Foundation on design, animation, and interactive projects.</p></div>
+        </div>
+        <div class="creative-profile__character">
+          <div class="artist-rig" role="img" aria-label="Illustrated artist whose eyes follow your pointer">
+            <img src="assets/images/creative-profile/artist-base.png" alt="" width="1024" height="1536" loading="lazy">
+            <svg class="artist-rig__eyes" viewBox="0 0 1024 1536" aria-hidden="true">
+              <defs>
+                <clipPath id="artist-eye-left"><path d="M449 354C475 347 506 363 510 397C489 401 449 386 447 365Z"/></clipPath>
+                <clipPath id="artist-eye-right"><path d="M570 389C582 371 608 370 625 381C633 394 623 413 604 416C588 418 575 413 567 409Z"/></clipPath>
+                <radialGradient id="artist-iris"><stop offset="0" stop-color="#60432d"/><stop offset=".7" stop-color="#352116"/><stop offset="1" stop-color="#170f0b"/></radialGradient>
+              </defs>
+              <g clip-path="url(#artist-eye-left)"><g class="artist-rig__pupil" data-eye="left"><ellipse cx="479" cy="374" rx="22" ry="24" fill="url(#artist-iris)"/><ellipse cx="479" cy="374" rx="13" ry="16" fill="#0c0806"/><circle cx="472" cy="364" r="5" fill="#fff"/><circle cx="485" cy="382" r="2" fill="#fff" opacity=".55"/></g></g>
+              <g clip-path="url(#artist-eye-right)"><g class="artist-rig__pupil" data-eye="right"><ellipse cx="598" cy="394" rx="21" ry="23" fill="url(#artist-iris)"/><ellipse cx="598" cy="394" rx="12" ry="15" fill="#0c0806"/><circle cx="591" cy="384" r="5" fill="#fff"/><circle cx="604" cy="402" r="2" fill="#fff" opacity=".55"/></g></g>
+            </svg>
+          </div>
+          <button class="creative-profile__motion" type="button" aria-pressed="false">Pause eye tracking</button>
+        </div>
+        <div class="creative-profile__tools"><h2>Know the<br>language of</h2>
+          <div><h3>Adobe Creative Cloud</h3><ul><li>Adobe Animate</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>After Effects</li><li>Premiere Pro</li><li>Adobe InDesign</li></ul></div>
+          <div><h3>3D World</h3><ul><li>Blender</li><li>3D Max</li></ul></div>
+          <div><h3>UI/UX Design</h3><ul><li>Figma</li><li>Adobe InDesign</li></ul></div>
+        </div>
+      </div>
+      <div class="creative-profile__flowers" aria-hidden="true"><span>✳︎</span><span>✳︎</span><span>✳︎</span></div>
     </section>
 
     <!-- ============ About ============ -->
@@ -220,5 +253,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/creative-profile.js?v=1"></script>
 </body>
 </html>
