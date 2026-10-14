@@ -47,3 +47,8 @@ existing alpha channel. Color and that original alpha are packed side by side
 into contact-artist-replacement.mp4 (720 × 640); the canvas now matches the
 360 × 640 foreground. No background key or generated mask is applied to this clip.
 The arched frame, muted looping and visibility/reduced-motion behavior remain.
+
+Latest contact replacement: Drive video 1o4dk0Yp0W-BXS4fpfXOHeUKvwPCORYez,
+with native 720 × 1280 foreground and supplied alpha. Packed RGB and alpha are
+stored in contact-artist-latest.mp4 (1440 × 1280); the canvas is 720 × 1280.
+The latest Vanishing Stories poster is shared by homepage and All Projects.
