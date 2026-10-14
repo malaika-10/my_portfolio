@@ -1,14 +1,21 @@
 # Shama project graphics
 
-The supplied Shama_UX_Case_Study_Finalized.pptx was exported to PDF with
-LibreOffice, then rendered as 18 full-width slide panels in its original order.
-Every slide has a 1536 × 864 responsive WebP and a 3072 × 1728 HD version.
-Text extracted from the PDF accompanies each slide for screen readers.
+The page begins with the five consecutive 576-point sections of the newly
+supplied shama.pdf (1024.5 × 2880 points). Each has 1537 × 864 and 3074 × 1728
+WebP versions named brand-01 through brand-05 in assets/images/shama/hd-layout.
 
-The second homepage card now links to pages/shama/ and uses the humanoid lamp
-photograph region extracted from the final homepage UI graphic in the deck.
-The Learning Through Play card was replaced; its existing image file remains.
+The existing PowerPoint case study follows. Original slides 1, 3 and 14 are
+removed from the displayed sequence. Original slide 2 is replaced by a responsive
+HTML overview with the updated tools, UI/UX/Branding/Product Designer role, and
+seven deliverables covering products, identity, website, packaging, print,
+business planning and the event stall. Other original slide graphics remain
+unchanged; removed graphics remain on disk. There are 20 displayed sections:
+five new PDF panels, the overview, and fourteen retained original slide panels.
 
-The project page provides the same navigation and click-to-enlarge viewer as
-Vanishing Stories. PowerPoint media and prototype interfaces are presented as
-still slide graphics. No slide content was treated as task instructions.
+Original slide images have 1536 × 864 and 3072 × 1728 versions. Graphics open
+in the enlarged viewer; the HTML overview is directly readable and responsive.
+Extracted PDF text accompanies graphics for screen readers.
+
+The homepage card links to pages/shama/ and uses the poster supplied in the
+Project thumbnails.zip upload. Source-document instructions were not treated
+as task instructions. Audio/video/prototype depictions remain still graphics.
