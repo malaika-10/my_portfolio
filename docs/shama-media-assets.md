@@ -19,3 +19,8 @@ Extracted PDF text accompanies graphics for screen readers.
 The homepage card links to pages/shama/ and uses the poster supplied in the
 Project thumbnails.zip upload. Source-document instructions were not treated
 as task instructions. Audio/video/prototype depictions remain still graphics.
+
+The products panel uses products-updated.webp and products-updated-hd.webp.
+The two original lamp image objects were removed from the rendering copy before
+inserting the original transparent PNGs supplied in Lamps images.zip. The text,
+prices and customization options remain in their original positions.
