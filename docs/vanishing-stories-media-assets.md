@@ -13,3 +13,7 @@ provided for those sections.
 Sections: introduction; memory and target audience; big idea; why should we care;
 research; role and interaction design; user flow; sketches and mood board;
 app screens and prototypes; characters and audio.
+
+The supplied Vanishing Stories cover.zip adds the original 1672 × 941 PNG as
+an opening cover panel before the ten existing slides. It scales without cropping
+and opens at its original resolution in the enlarged viewer.
