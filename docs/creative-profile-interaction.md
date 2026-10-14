@@ -34,3 +34,9 @@ The contact animation is now enclosed in the approved arched bronze window.
 Two curved frame borders surround a clipped dark interior, hiding the rectangular
 video bounds. CSS gradients create the bronze bevel without image assets. The
 frame scales with the character and its base stays flush with the section bottom.
+
+Eye masks were remapped to the actual illustrated eyelid contours to remove
+an abrupt white cut into the iris. Cursor offsets are limited to ±6 horizontal
+and ±3 vertical illustration pixels. Center, cardinal directions and diagonal
+views were checked at the native illustration scale, with mobile/reduced motion
+checks retained.

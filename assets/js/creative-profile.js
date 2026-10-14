@@ -27,7 +27,7 @@
     const distance = Math.hypot(dx, dy);
     // Independent pupils move inside fixed eye-opening masks, never over eyelashes.
     const strength = Math.min(distance / 240, 1);
-    aim(distance ? dx / distance * 9 * strength : 0, distance ? dy / distance * 6 * strength : 0);
+    aim(distance ? dx / distance * 6 * strength : 0, distance ? dy / distance * 3 * strength : 0);
   }, { passive: true });
   document.documentElement.addEventListener('pointerleave', () => aim(0, 0));
   window.addEventListener('blur', () => aim(0, 0));
