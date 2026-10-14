@@ -28,3 +28,9 @@ prices and customization options remain in their original positions.
 The five opening panels now use brand-revised-01 through brand-revised-05,
 rendered from the latest shama (1).pdf upload. Screen-reader transcripts were
 updated from the new PDF. The revised overview and replacement lamp panel remain.
+
+Current displayed slides 15 and 16 (original deck slides 12 and 13) use
+homepage-revised and customizer-revised graphics. Their original UI screenshot
+objects were removed and replaced with the matching PNGs from Shama Humanoid
+Lamp.zip, preserving image widths and top positions. Natural image proportions
+are retained; excess height is clipped at the bottom of the slide.
