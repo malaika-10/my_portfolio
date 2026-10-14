@@ -24,3 +24,7 @@ The products panel uses products-updated.webp and products-updated-hd.webp.
 The two original lamp image objects were removed from the rendering copy before
 inserting the original transparent PNGs supplied in Lamps images.zip. The text,
 prices and customization options remain in their original positions.
+
+The five opening panels now use brand-revised-01 through brand-revised-05,
+rendered from the latest shama (1).pdf upload. Screen-reader transcripts were
+updated from the new PDF. The revised overview and replacement lamp panel remain.
