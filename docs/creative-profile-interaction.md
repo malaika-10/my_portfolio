@@ -40,3 +40,10 @@ an abrupt white cut into the iris. Cursor offsets are limited to ±6 horizontal
 and ±3 vertical illustration pixels. Center, cardinal directions and diagonal
 views were checked at the native illustration scale, with mobile/reduced motion
 checks retained.
+
+The contact clip was replaced with the supplied Drive video
+(1Xa_iOudCB70GU8MOISlGrnsjw0-Ddyvn). It has native 360 × 640 resolution and an
+existing alpha channel. Color and that original alpha are packed side by side
+into contact-artist-replacement.mp4 (720 × 640); the canvas now matches the
+360 × 640 foreground. No background key or generated mask is applied to this clip.
+The arched frame, muted looping and visibility/reduced-motion behavior remain.
