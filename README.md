@@ -39,5 +39,8 @@ server (e.g. `npx serve .`) for correct relative paths.
 ## Deploying to GitHub Pages
 
 1. Push this repo to GitHub.
-2. In the repo settings, enable **Pages** → deploy from the `main` branch, root folder.
+2. In the repo settings, enable **Pages** → deploy from the `index-page-layout` branch, root folder.
 3. The site will be live at `https://<username>.github.io/<repo-name>/`.
+
+The root `.nojekyll` file publishes this plain HTML/CSS/JavaScript site directly,
+including standalone project directories. No Jekyll processing is required.
