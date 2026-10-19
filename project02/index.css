@@ -1,0 +1,12 @@
+body { margin: 0; background: #0b0a08; color: #fff; }
+.pdf-layout { width: 100%; }
+.pdf-panel { position: relative; width: 100%; line-height: 0; overflow: hidden; }
+.pdf-panel__zoom { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.pdf-panel__zoom img, .pdf-panel > img:first-child { display: block; width: 100%; height: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+:focus-visible { outline: 3px solid #dfb450; outline-offset: -4px; }
+.project-viewer { width: 96vw; max-width: 1600px; max-height: 96svh; border: 1px solid #dfb45066; border-radius: .5rem; padding: 3rem .75rem .75rem; margin: auto; background: #0b0a08; color: #fff; }
+.project-viewer::backdrop { background: #000e; }
+.project-viewer__content { width: min(100%, calc(85svh * var(--slide-ratio))); margin: auto; }
+.project-viewer__close { position: absolute; right: .5rem; top: .3rem; width: 2.2rem; height: 2.2rem; font-size: 1.8rem; background: transparent; color: #fff; border: 1px solid #dfb45099; border-radius: 50%; cursor: pointer; }
+body:has(.project-viewer[open]) { overflow: hidden; }
