@@ -59,3 +59,7 @@ object removed, plus the transparent headset extracted from the PDF. The headset
 rotates from -10 to +10 degrees around its center in a 20-second continuous cycle.
 The same layered animation appears in the enlarged viewer. Visitors requesting
 reduced motion see a stationary headset. Position and size scale with the slide.
+
+Current display update: click-to-enlarge and viewer dialogs were removed from
+all project detail pages at the user’s request. Animations and video controls
+remain. See project03.md for the current interaction policy.

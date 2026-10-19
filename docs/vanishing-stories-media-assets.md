@@ -17,3 +17,7 @@ app screens and prototypes; characters and audio.
 The supplied Vanishing Stories cover.zip adds the original 1672 × 941 PNG as
 an opening cover panel before the ten existing slides. It scales without cropping
 and opens at its original resolution in the enlarged viewer.
+
+Current display update: click-to-enlarge and viewer dialogs were removed from
+all project detail pages at the user’s request. Animations and video controls
+remain. See project03.md for the current interaction policy.

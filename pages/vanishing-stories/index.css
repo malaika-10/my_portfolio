@@ -57,21 +57,14 @@ body {
 }
 .pdf-layout { width: 100%; margin: 0; }
 .pdf-panel { margin: 0; padding: 0; line-height: 0; }
-.pdf-panel__zoom {
+.pdf-panel__artwork {
   display: block;
   width: 100%;
   padding: 0;
   border: 0;
   background: #111;
-  cursor: zoom-in;
+  cursor: default;
 }
-.pdf-panel__zoom img { display: block; width: 100%; height: auto; }
-.pdf-panel__zoom:focus-visible { outline-offset: -4px; }
-
-.image-viewer { width: 95vw; max-width: 1500px; max-height: 95svh; border: 1px solid #dfb45066; border-radius: 0.5rem; margin: auto; padding: 3.5rem 1rem 1rem; background: #0b0a08; color: #fff; }
-.image-viewer::backdrop { background: #000e; }
-.image-viewer img { width: 100%; height: auto; max-height: 75svh; object-fit: contain; }
-.image-viewer__close { position: absolute; top: 0.5rem; right: 0.5rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid #dfb45099; background: #0b0a08; color: #fff; font-size: 1.8rem; cursor: pointer; }
-.image-viewer__caption { padding-top: 1rem; text-align: center; font-size: 0.85rem; }
-body:has(.image-viewer[open]) { overflow: hidden; }
+.pdf-panel__artwork img { display: block; width: 100%; height: auto; }
+.pdf-panel__artwork:focus-visible { outline-offset: -4px; }
 

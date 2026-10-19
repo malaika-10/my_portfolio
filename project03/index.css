@@ -1,0 +1,7 @@
+body { margin: 0; background: #0b0a08; color: #fff; }
+.pdf-layout { width: 100%; }
+.pdf-panel { position: relative; width: 100%; line-height: 0; overflow: hidden; }
+.pdf-panel__artwork { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: default; }
+.pdf-panel__artwork img, .pdf-panel > img:first-child { display: block; width: 100%; height: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+:focus-visible { outline: 3px solid #dfb450; outline-offset: -4px; }

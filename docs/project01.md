@@ -14,3 +14,7 @@ native controls without a download-menu option, and include independent sound
 buttons. Enlarged slide views preserve the animations and playable media.
 
 The PDF source is unchanged. Existing project pages and galleries are unchanged.
+
+Current display update: click-to-enlarge and viewer dialogs were removed from
+all project detail pages at the user’s request. Animations and video controls
+remain. See project03.md for the current interaction policy.

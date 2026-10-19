@@ -57,23 +57,16 @@ body {
 }
 .pdf-layout { width: 100%; margin: 0; }
 .pdf-panel { margin: 0; padding: 0; line-height: 0; }
-.pdf-panel__zoom {
+.pdf-panel__artwork {
   display: block;
   width: 100%;
   padding: 0;
   border: 0;
   background: #111;
-  cursor: zoom-in;
+  cursor: default;
 }
-.pdf-panel__zoom img { display: block; width: 100%; height: auto; }
-.pdf-panel__zoom:focus-visible { outline-offset: -4px; }
-
-.image-viewer { width: 95vw; max-width: 1500px; max-height: 95svh; border: 1px solid #dfb45066; border-radius: 0.5rem; margin: auto; padding: 3.5rem 1rem 1rem; background: #0b0a08; color: #fff; }
-.image-viewer::backdrop { background: #000e; }
-.image-viewer img { width: 100%; height: auto; max-height: 75svh; object-fit: contain; }
-.image-viewer__close { position: absolute; top: 0.5rem; right: 0.5rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid #dfb45099; background: #0b0a08; color: #fff; font-size: 1.8rem; cursor: pointer; }
-.image-viewer__caption { padding-top: 1rem; text-align: center; font-size: 0.85rem; }
-body:has(.image-viewer[open]) { overflow: hidden; }
+.pdf-panel__artwork img { display: block; width: 100%; height: auto; }
+.pdf-panel__artwork:focus-visible { outline-offset: -4px; }
 
 .vr-video-panel { position: relative; aspect-ratio: 1537 / 864; background: #0b0a08; }
 .vr-video-panel > img { display: block; width: 100%; height: auto; }
@@ -87,7 +80,7 @@ body:has(.image-viewer[open]) { overflow: hidden; }
 
 /* Original PDF portraits are removed from the background before adding GIFs. */
 .drivers-panel { position: relative; overflow: hidden; }
-.driver-animation { position: absolute; padding: 0; border: 0; background: transparent; cursor: zoom-in; line-height: 0; }
+.driver-animation { position: absolute; padding: 0; border: 0; background: transparent; cursor: default; line-height: 0; }
 .driver-animation img { display: block; width: 100%; height: auto; }
 .driver-animation--baba { left: 17.95%; top: -2.31%; width: 21.52%; }
 .driver-animation--rashid { left: 40.18%; top: -3.59%; width: 22.55%; }
@@ -96,19 +89,16 @@ body:has(.image-viewer[open]) { overflow: hidden; }
 
 .drivers-panel > img { display: block; width: 100%; height: auto; }
 
-.overview-panel .pdf-panel__zoom { position: relative; overflow: hidden; }
-.pdf-panel__zoom .overview-glasses, .image-viewer .overview-glasses {
- position: absolute; left: 28.403%; top: 6.948%; width: 44.143%; height: auto;
- transform-origin: 50% 50%; animation: vr-gentle-sway 20s ease-in-out infinite;
- pointer-events: none;
-}
+.overview-panel .pdf-panel__artwork { position: relative; overflow: hidden; }
 @keyframes vr-gentle-sway {
  0%, 100% { transform: rotate(-10deg); }
  50% { transform: rotate(10deg); }
 }
-.image-viewer__artwork { position: relative; }
-.image-viewer__artwork--overview { width: min(100%, calc(75svh * 1537 / 864)); margin-inline: auto; }
-.image-viewer__artwork--overview > img:first-child { display: block; width: 100%; max-height: none; }
+.pdf-panel__artwork .overview-glasses {
+ position: absolute; left: 28.403%; top: 6.948%; width: 44.143%; height: auto;
+ transform-origin: 50% 50%; animation: vr-gentle-sway 20s ease-in-out infinite;
+ pointer-events: none;
+}
 @media (prefers-reduced-motion: reduce) {
- .pdf-panel__zoom .overview-glasses, .image-viewer .overview-glasses { animation: none; transform: none; }
+ .pdf-panel__artwork .overview-glasses { animation: none; transform: none; }
 }

@@ -34,3 +34,7 @@ homepage-revised and customizer-revised graphics. Their original UI screenshot
 objects were removed and replaced with the matching PNGs from Shama Humanoid
 Lamp.zip, preserving image widths and top positions. Natural image proportions
 are retained; excess height is clipped at the bottom of the slide.
+
+Current display update: click-to-enlarge and viewer dialogs were removed from
+all project detail pages at the user’s request. Animations and video controls
+remain. See project03.md for the current interaction policy.
