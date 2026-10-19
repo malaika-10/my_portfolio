@@ -1,0 +1,816 @@
+MALAIKA MAQSOOD PORTFOLIO — WEBSITE STRUCTURE AND EDITING GUIDE
+Prepared: 19 October 2026
+Repository: https://github.com/malaika-10/my_portfolio
+Working branch: index-page-layout
+
+1. HOW THE WEBSITE WORKS
+=======================
+This is a static website built with HTML, CSS and JavaScript.
+There is no database, admin panel, CMS, framework or automatic project catalogue.
+
+HTML = content, links, image/video references and page structure.
+CSS = appearance, spacing, colours, typography and responsive layouts.
+JavaScript = eye tracking, video compositing, navigation and animations.
+Assets = image, font and video files loaded by the pages.
+
+A folder containing index.html becomes a URL directory on GitHub Pages.
+For example, pages/shama/index.html becomes /pages/shama/ under the site base URL.
+The expected site base is https://malaika-10.github.io/my_portfolio/ if GitHub
+Pages is enabled for this repository. Publishing settings must be checked in
+GitHub; changing the repository remote does not enable Pages automatically.
+
+2. MAIN DIRECTORY STRUCTURE
+===========================
+my_portfolio/
+  index.html                         Homepage
+  .nojekyll                          Publish plain static files without Jekyll
+  .gitignore                         Files Git should ignore
+  README.md                          General repository and publishing notes
+
+  assets/
+    css/                             Shared and homepage styles
+    js/                              Homepage and shared behaviour
+    fonts/                           Local fonts and their licence files
+    images/                          Posters, slide images and character assets
+    videos/                          Website video files
+
+  pages/
+    all-projects/                    Public project gallery
+      index.html
+      index.css
+    androon-rawalpindi/               Full linked Pindi case study
+      index.html
+      index.css
+      project.js                     Video controls and visible-area playback
+    shama/                           Full linked Shama case study
+      index.html
+      index.css
+    vanishing-stories/               Full linked Vanishing Stories case study
+      index.html
+      index.css
+
+  project01/                         Standalone seven-slide Pindi presentation
+    index.html
+    index.css
+    project.js                       Video/audio controls
+  project02/                         Standalone five-slide Vanishing Stories
+    index.html
+    index.css
+  project03/                         Standalone four-slide Shama presentation
+    index.html
+    index.css
+
+  docs/                              Implementation notes and downloadable files
+    downloads/                       Separate exported project PDFs
+    previews/                        Approved window-frame mockup
+    Website-Structure-and-Editing-Guide.txt   This guide
+
+Project01, Project02 and Project03 are intentionally not linked from the homepage
+or gallery. Their noindex/nofollow metadata discourages search indexing, but they
+are not private: anyone with their URL can access them.
+
+3. HOMEPAGE: WHICH FILE CONTAINS EACH SECTION?
+============================================
+All homepage markup and written content are in the root index.html.
+
+Header:
+  MALAIKA branding, About/Work/Contact navigation and mobile menu button.
+  The branding links to index.html. About goes to section 02 (#about).
+
+Section 01 — Hero:
+  <section class="hero">
+  Hero artwork, title and introductory text.
+  Layout: assets/css/home.css.
+
+Section 02 — Education, work experience and creative tools:
+  <section class="creative-profile" id="about">
+  Education dates, work experience, employers, software lists, character image
+  and SVG eye/pupil shapes are in index.html.
+  Styling: assets/css/creative-profile.css.
+  Cursor tracking: assets/js/creative-profile.js.
+  Character image: assets/images/creative-profile/artist-base.png.
+  The eye clipping paths are in the inline SVG in index.html.
+  Pupil movement limits and smoothing are in creative-profile.js.
+
+Section 03 — Design introduction, statistics and four skill cards:
+  <section class="section about" id="design-approach">
+  Heading: "Where Curiosity Meets Motion & Interaction".
+  Paragraph starts: "My ideas rarely sit still."
+  Statistics: Years of Practice, Ideas Brought to Life, and Clients Who Trusted
+  the Curiosity.
+  Four cards: Interaction Design, Motion & Animation, Visual Design, and
+  Research & Strategy.
+  Main layout: assets/css/home.css.
+  Current overrides, full-width justified paragraph and card grid:
+  assets/css/home-updates.css.
+
+Section 04 — Featured projects:
+  <section class="section projects" id="projects">
+  Three manually written project cards in index.html.
+  Each card contains a detail-page href, thumbnail src, category, title and
+  Explore label. The View All Projects button links to pages/all-projects/.
+  Poster layout and labels below the artwork: assets/css/home-updates.css.
+
+Section 05 — Contact:
+  <section class="section connect" id="connect">
+  Heading, description, email, location, Behance and LinkedIn are in index.html.
+  The animated girl is displayed inside the bronze arched window here.
+  Frame styling: assets/css/home-updates.css.
+  Transparent video rendering: assets/js/contact-artist.js.
+  Current video: assets/videos/contact-artist-latest.mp4.
+
+Footer:
+  Copyright and LinkedIn, Behance and Instagram links are in index.html.
+
+Changing text or links in a page affects only that page. The gallery has its own
+header/footer markup, and detail pages have their own navigation/footer markup.
+They are not generated from a single shared HTML component.
+
+4. SHARED STYLES AND JAVASCRIPT
+===============================
+assets/css/base.css
+  Site colour variables, spacing tokens, typography defaults, reset, containers,
+  buttons and shared utilities. Changes can affect many pages that load it.
+
+assets/css/components.css
+  Navbar, mobile navigation and footer styles for pages loading this stylesheet.
+
+assets/css/home.css
+  Original homepage layouts: hero, about, projects and contact.
+
+assets/css/creative-profile.css
+  Section 02 columns, character positioning, education/tools text and decoration.
+
+assets/css/home-updates.css
+  Current homepage refinements: branding, spacing, section 03 paragraph/statistics,
+  skill-card layout, contact frame and project poster-card presentation.
+  Also loaded by All Projects, which shares the poster-card design.
+  Loaded late, so its rules can override home.css and components.css.
+
+assets/js/main.js
+  Sticky navbar state, mobile menu opening/closing and scroll-reveal animations.
+
+assets/js/creative-profile.js
+  Moves the homepage character's pupils toward the pointer. Handles motion
+  preferences and recentres the pupils when the pointer leaves/window blurs.
+
+assets/js/contact-artist.js
+  Displays the contact animation with transparency using WebGL and a Canvas 2D
+  fallback. Controls visible-area playback and reduced-motion behaviour.
+  IMPORTANT: the current MP4 contains colour on the left and its opacity mask
+  on the right. It is not an ordinary full-width MP4. Do not simply replace it
+  with a regular MP4 without preparing the same packed format or updating the
+  renderer. The visible canvas is 720 x 1280; the packed video is 1440 x 1280.
+
+CSS/JS references sometimes include ?v=6 or another version string. When changing
+an existing stylesheet or script, update its version in the HTML if necessary
+so visitors load the revised file rather than a cached copy.
+
+5. PROJECT PAGES AND THEIR DATA
+===============================
+pages/all-projects/index.html
+  All publicly listed project cards. Currently Pindi, Shama and Vanishing Stories.
+  This is a separate hard-coded list from the homepage. Adding a page folder
+  does NOT automatically add it to this gallery.
+pages/all-projects/index.css
+  Gallery heading, spacing and page-specific styling. It also loads shared CSS.
+
+pages/androon-rawalpindi/index.html
+  Full linked Pindi case study: 24 slide sections, image sources, driver animation
+  placements, glasses overlay and video references.
+pages/androon-rawalpindi/index.css
+  Full-width slide layout and percentage-based glasses/driver/video positioning.
+pages/androon-rawalpindi/project.js
+  Video sound toggles and playback when videos enter/leave the visible area.
+
+pages/shama/index.html
+  Full linked Shama case study: 20 displayed sections, including five updated
+  brand-PDF panels, the native HTML overview/deliverables section, and retained
+  original case-study panels. The updated lamp and website images are referenced
+  here. Original deck slides 1, 3 and 14 were removed from the displayed sequence.
+pages/shama/index.css
+  Slide layout plus the responsive HTML overview and deliverables design.
+
+pages/vanishing-stories/index.html
+  Full linked Vanishing Stories case study: cover plus ten original panels.
+pages/vanishing-stories/index.css
+  Full-width slide presentation.
+
+project01/index.html + index.css + project.js
+  Seven-slide standalone Pindi version, with glasses motion on slide 2, animated
+  drivers on slide 6 and both playable videos on slide 7.
+
+project02/index.html + index.css
+  Five-slide standalone Vanishing Stories version.
+
+project03/index.html + index.css
+  Four-slide standalone Shama version.
+
+All six detail pages currently have no click-to-enlarge or image viewer dialogs.
+Video controls still work. Gallery project cards remain clickable to open pages.
+
+IMPORTANT: linked detail pages and standalone presentations are independent.
+Editing pages/shama/index.html does not update project03/index.html, for example.
+
+6. TEXT INSIDE SLIDES VERSUS REAL HTML TEXT
+==========================================
+Most project slides are rendered images, not editable HTML layouts.
+
+To change visible words embedded in a slide:
+  1. Update the original PDF/PowerPoint/design or rebuild that slide.
+  2. Export the revised slide artwork.
+  3. Replace its image assets or update their paths in the detail-page HTML.
+  4. Update the matching screen-reader transcript/alt text.
+
+A <p class="sr-only"> beside a slide is an accessibility transcript. Changing it
+alone does NOT change the words visible inside the slide image.
+
+Exceptions: Shama's project overview/deliverables and the homepage copy are real
+HTML text. Edit their HTML directly.
+
+Animations/videos are overlays above clean slide backgrounds. When replacing a
+static character/image with animation, remove the original object from the slide
+background first; otherwise the old image can show through behind the animation.
+Overlay positions use percentages and must match each specific slide's layout.
+
+7. ASSETS: WHICH FOLDER CONTAINS WHAT?
+=====================================
+assets/images/project-thumbnails/
+  androon-rawalpindi.png             Current Pindi poster
+  shama.png                         Current Shama poster
+  vanishing-stories-revised.png      Current Vanishing Stories poster
+  vanishing-stories.png              Earlier poster, retained on disk
+  Homepage and All Projects each reference their own thumbnail paths in HTML.
+
+assets/images/favicon.svg
+  The MM browser-tab icon. Pages each include a favicon <link> reference.
+
+assets/images/creative-profile/
+  artist-base.png                   Homepage section 02 character with eye whites
+
+assets/images/androon-rawalpindi/
+  Extracted source artwork, headset, decorative textile border and earlier images.
+  hd-layout/                       Responsive and HD full-case-study slide images
+  drivers/baba.webp                 Animated Baba driver
+  drivers/rashid.webp               Animated Rashid driver
+  drivers/saad.webp                 Animated Saad driver
+  pdf-layout/                      Earlier slide-render assets
+
+assets/images/shama/hd-layout/
+  Original slide images, updated brand-revised panels, products-updated lamp
+  panel, homepage-revised and customizer-revised screenshots. Read the HTML src
+  and srcset values to identify the version currently displayed.
+
+assets/images/vanishing-stories/
+  cover.png                        Current detail-page opening cover
+  hd-layout/                       Full linked detail-page panels
+
+assets/images/project01/hd-layout/
+assets/images/project02/hd-layout/
+assets/images/project03/hd-layout/
+  Slide artwork for the separate standalone presentations.
+
+assets/images/ (other top-level files)
+  Hero/source artwork and earlier images retained from previous designs.
+  A file's presence does not mean the current website uses it.
+
+assets/videos/
+  contact-artist-latest.mp4          Current homepage framed video (packed alpha)
+  intro-vr-updated.mp4               Current Pindi VR introduction video
+  rickshaw-tour.mp4                  Current Pindi rickshaw video
+  contact-artist.mp4                 Earlier original contact clip
+  contact-artist-matted.mp4          Earlier packed contact clip
+  contact-artist-replacement.mp4     Earlier packed replacement contact clip
+  intro-vr.mp4                      Earlier Pindi intro video
+
+assets/fonts/
+  Anton-Regular.ttf, Raleway.ttf, Poppins-Regular.ttf, Poppins-Bold.ttf and licences.
+  Playfair Display and Inter are also referenced through Google Fonts on the
+  homepage/gallery. Check each page's loaded stylesheets for its actual fonts.
+
+Responsive slide assets generally have a smaller .webp and larger -hd.webp.
+HTML srcset/sizes lets the browser choose the appropriate image. Keep width and
+height attributes proportional to the actual artwork to avoid layout jumps.
+
+8. HOW TO ADD A NEW PUBLIC PROJECT
+=================================
+Example name: New Project. URL slug: new-project.
+
+Step 1 — Create the detail page:
+  Create pages/new-project/index.html and pages/new-project/index.css.
+  Use an existing linked project page as a template, replacing its project-specific
+  title, metadata, slide markup, accessibility text and asset references.
+  Only add project.js if the new page actually needs video or other interaction.
+  Do not copy Pindi media overlays into an unrelated project unchanged.
+
+Step 2 — Add assets:
+  Put its slide images in assets/images/new-project/hd-layout/.
+  Put its poster in assets/images/project-thumbnails/.
+  Put any normal playable project videos in assets/videos/.
+
+Step 3 — Add a card to the All Projects gallery:
+  Edit pages/all-projects/index.html.
+  Copy a project-card inside .projects__grid and update href, image, alt text,
+  project number, category and title.
+
+  Example (inside pages/all-projects/index.html):
+
+  <a href="../new-project/" class="project-card">
+    <span class="project-card__number">04</span>
+    <img class="project-card__image"
+         src="../../assets/images/project-thumbnails/new-project.png"
+         alt="New Project cover" loading="lazy">
+    <div class="project-card__overlay">
+      <span class="project-card__tag">UI/UX / Interaction</span>
+      <h3 class="project-card__title">New Project</h3>
+      <span class="project-card__link">Explore →</span>
+    </div>
+  </a>
+
+Step 4 — Homepage featuring is optional:
+  Edit root index.html only if the project should be one of the THREE featured
+  homepage projects. Replace an existing featured card rather than adding a fourth.
+  Root-page paths differ from gallery paths:
+    href="pages/new-project/"
+    src="assets/images/project-thumbnails/new-project.png"
+
+Step 5 — Navigation and metadata:
+  Set the detail-page <title>, description and favicon.
+  Add suitable Back to home / Back to all projects links.
+  Keep slide images non-clickable; do not add zoom buttons/viewer dialogs.
+
+Step 6 — Check and publish:
+  Verify every image/video loads, all links work, and the layout fits desktop
+  and mobile. Ensure there is no horizontal scrolling.
+  Commit and push to index-page-layout. Wait for a successful GitHub Pages build.
+
+9. HOW TO ADD A NEW UNLISTED PRESENTATION
+=======================================
+Use the standalone convention, for example project04/:
+  project04/index.html
+  project04/index.css
+  project04/project.js              Only if needed
+  assets/images/project04/hd-layout/
+
+Use ../assets/... paths because this folder is one level below the site root.
+Include <meta name="robots" content="noindex, nofollow"> if it should be unlisted.
+Do not add its link to index.html or pages/all-projects/index.html.
+It will still be publicly accessible at <site-base>/project04/.
+
+10. RELATIVE PATHS — COMMON SOURCE OF BROKEN LINKS
+=================================================
+From root index.html:
+  assets/images/...
+  pages/shama/
+
+From pages/all-projects/index.html:
+  ../../assets/images/...
+  ../shama/
+  ../../index.html
+
+From pages/shama/index.html:
+  ../../assets/images/...
+  ../all-projects/
+  ../../index.html
+
+From project03/index.html:
+  ../assets/images/...
+  ../index.html
+
+GitHub Pages paths are case-sensitive. A filename must match exactly, including
+spaces, uppercase/lowercase letters and its extension. Prefer simple lowercase
+names with hyphens for newly added website files.
+
+11. PDF EXPORTS AND DOCUMENTATION
+=================================
+docs/downloads/Galiyan-Pindi-Diyan.pdf
+  Separate 24-page export of the full linked Pindi project, with external video
+  links beneath the two video previews.
+docs/downloads/Shama.pdf
+  Separate 20-page export of the full linked Shama project.
+docs/downloads/Vanishing-Stories.pdf
+  Separate 11-page export, including its cover.
+
+These PDFs are exported snapshots. Editing a website page does not automatically
+update the PDFs. They must be regenerated separately when a new export is needed.
+The export-generation scripts are not stored as a supported build system in this
+repository. Original design uploads are not a required website runtime dependency.
+
+docs/creative-profile-interaction.md   Homepage character/video implementation notes
+docs/androon-media-assets.md          Full Pindi media notes
+docs/shama-media-assets.md            Full Shama asset/history notes
+docs/vanishing-stories-media-assets.md  Vanishing Stories asset notes
+docs/project01.md                    Standalone Pindi notes
+docs/project02.md                    Standalone Vanishing Stories notes
+docs/project03.md                    Standalone Shama and current no-zoom policy
+docs/downloads/README.md             PDF export notes
+docs/previews/contact-window-mockup.png  Approved bronze-window visual mockup
+
+Some documentation records earlier versions. For the current displayed content,
+check the HTML src/href references and the stylesheets/scripts it actually loads.
+
+12. LOCAL PREVIEW AND DEPLOYMENT
+================================
+From the repository root, run:
+  python3 -m http.server 8000
+Then open the local server in your browser for development.
+No npm install or compilation step is required for this website.
+
+GitHub Pages setup:
+  Repository: malaika-10/my_portfolio
+  Branch used for work: index-page-layout
+  Pages deployment source: index-page-layout, root folder (when using branch deploy)
+  .nojekyll: keep this file at the repository root.
+
+Check deployment status in the repository's Settings > Pages and Actions.
+A successful git push does not itself confirm that the Pages deployment finished.
+
+Never put passwords, private keys or tokens in HTML/JS/assets or this repository.
+Publicly served images and videos can be copied or screenshotted even when
+click-to-enlarge is disabled.
+
+13. QUICK LOOKUP
+================
+Change homepage words                 index.html
+Change section 02 education/tools      index.html
+Fix eye shapes                        SVG clip paths in index.html
+Change eye movement                   assets/js/creative-profile.js
+Change homepage spacing/design        assets/css/home-updates.css + home.css
+Change bronze window                  assets/css/home-updates.css
+Change contact video renderer         assets/js/contact-artist.js
+Change contact video file             source reference in index.html
+Add project to All Projects            pages/all-projects/index.html
+Change three homepage featured cards   index.html
+Add a new linked project               pages/<slug>/index.html + index.css + assets
+Edit Pindi detail page                 pages/androon-rawalpindi/
+Edit Shama detail page                 pages/shama/
+Edit Vanishing Stories detail page     pages/vanishing-stories/
+Edit standalone presentations          project01/, project02/, project03/
+Change project poster                 image path in BOTH gallery/homepage HTML
+Change visible PDF-slide text          original design + regenerated slide image
+Change footer/social links             each page's HTML footer
+Change browser-tab icon                assets/images/favicon.svg
+Change shared colours                 assets/css/base.css
+
+14. COMPLETE TRACKED FILE INVENTORY
+===================================
+The inventory below includes retained/older assets as well as current files.
+Use the HTML references to identify which version is live. .git internals,
+workspace attachments, credentials and temporary export tools are not included.
+
+.gitignore
+.nojekyll
+README.md
+assets/css/base.css
+assets/css/components.css
+assets/css/creative-profile.css
+assets/css/home-updates.css
+assets/css/home.css
+assets/fonts/Anton-OFL.txt
+assets/fonts/Anton-Regular.ttf
+assets/fonts/Poppins-Bold.ttf
+assets/fonts/Poppins-OFL.txt
+assets/fonts/Poppins-Regular.ttf
+assets/fonts/Raleway-OFL.txt
+assets/fonts/Raleway.ttf
+assets/images/.gitkeep
+assets/images/about-portrait.jpg
+assets/images/androon-rawalpindi/chai-culture.webp
+assets/images/androon-rawalpindi/character-model-01.webp
+assets/images/androon-rawalpindi/character-model-02.webp
+assets/images/androon-rawalpindi/character-model-03.webp
+assets/images/androon-rawalpindi/character-model-04.webp
+assets/images/androon-rawalpindi/character-model-05.webp
+assets/images/androon-rawalpindi/character-model-06.webp
+assets/images/androon-rawalpindi/character-model-07.webp
+assets/images/androon-rawalpindi/character-model-08.webp
+assets/images/androon-rawalpindi/city-background.webp
+assets/images/androon-rawalpindi/concept-film.webp
+assets/images/androon-rawalpindi/driver-baba-jameel.webp
+assets/images/androon-rawalpindi/driver-rashid.webp
+assets/images/androon-rawalpindi/driver-saad.webp
+assets/images/androon-rawalpindi/drivers/baba.webp
+assets/images/androon-rawalpindi/drivers/rashid.webp
+assets/images/androon-rawalpindi/drivers/saad.webp
+assets/images/androon-rawalpindi/environment-detail-01.webp
+assets/images/androon-rawalpindi/environment-detail-02.webp
+assets/images/androon-rawalpindi/environment-detail-03.webp
+assets/images/androon-rawalpindi/environment-detail-04.webp
+assets/images/androon-rawalpindi/environment-detail-05.webp
+assets/images/androon-rawalpindi/environment-detail-06.webp
+assets/images/androon-rawalpindi/environment-detail-07.webp
+assets/images/androon-rawalpindi/environment-detail-08.webp
+assets/images/androon-rawalpindi/environment-model-01.webp
+assets/images/androon-rawalpindi/environment-model-02.webp
+assets/images/androon-rawalpindi/environment-model-03.webp
+assets/images/androon-rawalpindi/environment-model-04.webp
+assets/images/androon-rawalpindi/environment-model-05.webp
+assets/images/androon-rawalpindi/environment-model-06.webp
+assets/images/androon-rawalpindi/environment-model-07.webp
+assets/images/androon-rawalpindi/environment-model-08.webp
+assets/images/androon-rawalpindi/environment-model-09.webp
+assets/images/androon-rawalpindi/game-screen-01.webp
+assets/images/androon-rawalpindi/game-screen-02.webp
+assets/images/androon-rawalpindi/game-screen-03.webp
+assets/images/androon-rawalpindi/game-screen-04.webp
+assets/images/androon-rawalpindi/game-screen-05.webp
+assets/images/androon-rawalpindi/game-screen-06.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-01-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-01.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-02-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-02.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-03-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-03.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-04-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-04.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-05-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-05.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-06-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-06.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-07-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-07.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-08-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-08.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-09-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-09.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-10-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-10.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-11-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-11.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-12-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-12.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-13-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-13.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-14-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-14.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-15-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-15.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-16-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-16.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-17-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-17.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-18-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-18.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-19-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-19.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-20-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-1-20.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-01-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-01.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-02-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-02.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-03-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-03.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-04-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-2-04.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-01-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-01.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-02-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-02.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-03-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-03.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-04-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-04.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-05-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-05.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-06-hd.webp
+assets/images/androon-rawalpindi/hd-layout/canvas-3-06.webp
+assets/images/androon-rawalpindi/hd-layout/drivers-background-hd.webp
+assets/images/androon-rawalpindi/hd-layout/drivers-background.webp
+assets/images/androon-rawalpindi/hd-layout/overview-background-hd.webp
+assets/images/androon-rawalpindi/hd-layout/overview-background.webp
+assets/images/androon-rawalpindi/interaction-1.webp
+assets/images/androon-rawalpindi/interaction-2.webp
+assets/images/androon-rawalpindi/interaction-3.webp
+assets/images/androon-rawalpindi/interface-components.webp
+assets/images/androon-rawalpindi/passenger-amna.webp
+assets/images/androon-rawalpindi/passenger-hamza.webp
+assets/images/androon-rawalpindi/passenger-khala-nasreen.webp
+assets/images/androon-rawalpindi/passenger-sara.webp
+assets/images/androon-rawalpindi/passenger-uncle-tariq.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-01.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-02.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-03.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-04.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-05.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-06.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-07.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-08.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-09.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-10.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-11.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-12.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-13.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-14.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-15.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-16.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-17.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-18.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-19.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-1-20.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-2-01.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-2-02.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-2-03.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-2-04.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-3-01.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-3-02.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-3-03.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-3-04.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-3-05.webp
+assets/images/androon-rawalpindi/pdf-layout/canvas-3-06.webp
+assets/images/androon-rawalpindi/project-hero.webp
+assets/images/androon-rawalpindi/rickshaw-art.webp
+assets/images/androon-rawalpindi/rickshaw-model-01.webp
+assets/images/androon-rawalpindi/rickshaw-model-02.webp
+assets/images/androon-rawalpindi/rickshaw-model-03.webp
+assets/images/androon-rawalpindi/rickshaw-model-04.webp
+assets/images/androon-rawalpindi/rickshaw-street.webp
+assets/images/androon-rawalpindi/street-scene-01.webp
+assets/images/androon-rawalpindi/street-scene-02.webp
+assets/images/androon-rawalpindi/street-scene-03.webp
+assets/images/androon-rawalpindi/street-scene-04.webp
+assets/images/androon-rawalpindi/street-scene-05.webp
+assets/images/androon-rawalpindi/street-scene-06.webp
+assets/images/androon-rawalpindi/street-scene-07.webp
+assets/images/androon-rawalpindi/street-scene-08.webp
+assets/images/androon-rawalpindi/street-scene-09.webp
+assets/images/androon-rawalpindi/street-scene-10.webp
+assets/images/androon-rawalpindi/street-scene-11.webp
+assets/images/androon-rawalpindi/street-scene-12.webp
+assets/images/androon-rawalpindi/street-scene-13.webp
+assets/images/androon-rawalpindi/street-scene-14.webp
+assets/images/androon-rawalpindi/street-scene-15.webp
+assets/images/androon-rawalpindi/street-scene-16.webp
+assets/images/androon-rawalpindi/street-scene-17.webp
+assets/images/androon-rawalpindi/street-scene-18.webp
+assets/images/androon-rawalpindi/textile-border.webp
+assets/images/androon-rawalpindi/visual-direction.webp
+assets/images/androon-rawalpindi/vr-experience.webp
+assets/images/androon-rawalpindi/vr-headset.webp
+assets/images/creative-profile/artist-base.png
+assets/images/favicon.svg
+assets/images/hero-background.png
+assets/images/hero.jpg
+assets/images/project-androon.jpg
+assets/images/project-learning.jpg
+assets/images/project-shama.webp
+assets/images/project-thumbnails/androon-rawalpindi.png
+assets/images/project-thumbnails/shama.png
+assets/images/project-thumbnails/vanishing-stories-revised.png
+assets/images/project-thumbnails/vanishing-stories.png
+assets/images/project-vanishing.jpg
+assets/images/project01/hd-layout/slide-01-hd.webp
+assets/images/project01/hd-layout/slide-01.webp
+assets/images/project01/hd-layout/slide-02-hd.webp
+assets/images/project01/hd-layout/slide-02.webp
+assets/images/project01/hd-layout/slide-03-hd.webp
+assets/images/project01/hd-layout/slide-03.webp
+assets/images/project01/hd-layout/slide-04-hd.webp
+assets/images/project01/hd-layout/slide-04.webp
+assets/images/project01/hd-layout/slide-05-hd.webp
+assets/images/project01/hd-layout/slide-05.webp
+assets/images/project01/hd-layout/slide-06-hd.webp
+assets/images/project01/hd-layout/slide-06.webp
+assets/images/project01/hd-layout/slide-07-hd.webp
+assets/images/project01/hd-layout/slide-07.webp
+assets/images/project02/hd-layout/slide-01-hd.webp
+assets/images/project02/hd-layout/slide-01.webp
+assets/images/project02/hd-layout/slide-02-hd.webp
+assets/images/project02/hd-layout/slide-02.webp
+assets/images/project02/hd-layout/slide-03-hd.webp
+assets/images/project02/hd-layout/slide-03.webp
+assets/images/project02/hd-layout/slide-04-hd.webp
+assets/images/project02/hd-layout/slide-04.webp
+assets/images/project02/hd-layout/slide-05-hd.webp
+assets/images/project02/hd-layout/slide-05.webp
+assets/images/project03/hd-layout/slide-01-hd.webp
+assets/images/project03/hd-layout/slide-01.webp
+assets/images/project03/hd-layout/slide-02-hd.webp
+assets/images/project03/hd-layout/slide-02.webp
+assets/images/project03/hd-layout/slide-03-hd.webp
+assets/images/project03/hd-layout/slide-03.webp
+assets/images/project03/hd-layout/slide-04-hd.webp
+assets/images/project03/hd-layout/slide-04.webp
+assets/images/shama/hd-layout/brand-01-hd.webp
+assets/images/shama/hd-layout/brand-01.webp
+assets/images/shama/hd-layout/brand-02-hd.webp
+assets/images/shama/hd-layout/brand-02.webp
+assets/images/shama/hd-layout/brand-03-hd.webp
+assets/images/shama/hd-layout/brand-03.webp
+assets/images/shama/hd-layout/brand-04-hd.webp
+assets/images/shama/hd-layout/brand-04.webp
+assets/images/shama/hd-layout/brand-05-hd.webp
+assets/images/shama/hd-layout/brand-05.webp
+assets/images/shama/hd-layout/brand-revised-01-hd.webp
+assets/images/shama/hd-layout/brand-revised-01.webp
+assets/images/shama/hd-layout/brand-revised-02-hd.webp
+assets/images/shama/hd-layout/brand-revised-02.webp
+assets/images/shama/hd-layout/brand-revised-03-hd.webp
+assets/images/shama/hd-layout/brand-revised-03.webp
+assets/images/shama/hd-layout/brand-revised-04-hd.webp
+assets/images/shama/hd-layout/brand-revised-04.webp
+assets/images/shama/hd-layout/brand-revised-05-hd.webp
+assets/images/shama/hd-layout/brand-revised-05.webp
+assets/images/shama/hd-layout/customizer-revised-hd.webp
+assets/images/shama/hd-layout/customizer-revised.webp
+assets/images/shama/hd-layout/homepage-revised-hd.webp
+assets/images/shama/hd-layout/homepage-revised.webp
+assets/images/shama/hd-layout/products-updated-hd.webp
+assets/images/shama/hd-layout/products-updated.webp
+assets/images/shama/hd-layout/slide-01-hd.webp
+assets/images/shama/hd-layout/slide-01.webp
+assets/images/shama/hd-layout/slide-02-hd.webp
+assets/images/shama/hd-layout/slide-02.webp
+assets/images/shama/hd-layout/slide-03-hd.webp
+assets/images/shama/hd-layout/slide-03.webp
+assets/images/shama/hd-layout/slide-04-hd.webp
+assets/images/shama/hd-layout/slide-04.webp
+assets/images/shama/hd-layout/slide-05-hd.webp
+assets/images/shama/hd-layout/slide-05.webp
+assets/images/shama/hd-layout/slide-06-hd.webp
+assets/images/shama/hd-layout/slide-06.webp
+assets/images/shama/hd-layout/slide-07-hd.webp
+assets/images/shama/hd-layout/slide-07.webp
+assets/images/shama/hd-layout/slide-08-hd.webp
+assets/images/shama/hd-layout/slide-08.webp
+assets/images/shama/hd-layout/slide-09-hd.webp
+assets/images/shama/hd-layout/slide-09.webp
+assets/images/shama/hd-layout/slide-10-hd.webp
+assets/images/shama/hd-layout/slide-10.webp
+assets/images/shama/hd-layout/slide-11-hd.webp
+assets/images/shama/hd-layout/slide-11.webp
+assets/images/shama/hd-layout/slide-12-hd.webp
+assets/images/shama/hd-layout/slide-12.webp
+assets/images/shama/hd-layout/slide-13-hd.webp
+assets/images/shama/hd-layout/slide-13.webp
+assets/images/shama/hd-layout/slide-14-hd.webp
+assets/images/shama/hd-layout/slide-14.webp
+assets/images/shama/hd-layout/slide-15-hd.webp
+assets/images/shama/hd-layout/slide-15.webp
+assets/images/shama/hd-layout/slide-16-hd.webp
+assets/images/shama/hd-layout/slide-16.webp
+assets/images/shama/hd-layout/slide-17-hd.webp
+assets/images/shama/hd-layout/slide-17.webp
+assets/images/shama/hd-layout/slide-18-hd.webp
+assets/images/shama/hd-layout/slide-18.webp
+assets/images/vanishing-stories/cover.png
+assets/images/vanishing-stories/hd-layout/slide-01-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-01.webp
+assets/images/vanishing-stories/hd-layout/slide-02-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-02.webp
+assets/images/vanishing-stories/hd-layout/slide-03-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-03.webp
+assets/images/vanishing-stories/hd-layout/slide-04-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-04.webp
+assets/images/vanishing-stories/hd-layout/slide-05-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-05.webp
+assets/images/vanishing-stories/hd-layout/slide-06-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-06.webp
+assets/images/vanishing-stories/hd-layout/slide-07-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-07.webp
+assets/images/vanishing-stories/hd-layout/slide-08-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-08.webp
+assets/images/vanishing-stories/hd-layout/slide-09-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-09.webp
+assets/images/vanishing-stories/hd-layout/slide-10-hd.webp
+assets/images/vanishing-stories/hd-layout/slide-10.webp
+assets/js/contact-artist.js
+assets/js/creative-profile.js
+assets/js/main.js
+assets/videos/contact-artist-latest.mp4
+assets/videos/contact-artist-matted.mp4
+assets/videos/contact-artist-replacement.mp4
+assets/videos/contact-artist.mp4
+assets/videos/intro-vr-updated.mp4
+assets/videos/intro-vr.mp4
+assets/videos/rickshaw-tour.mp4
+docs/Website-Structure-and-Editing-Guide.txt
+docs/androon-media-assets.md
+docs/creative-profile-interaction.md
+docs/downloads/Galiyan-Pindi-Diyan.pdf
+docs/downloads/README.md
+docs/downloads/Shama.pdf
+docs/downloads/Vanishing-Stories.pdf
+docs/previews/contact-window-mockup.png
+docs/project01.md
+docs/project02.md
+docs/project03.md
+docs/shama-media-assets.md
+docs/vanishing-stories-media-assets.md
+index.html
+pages/all-projects/index.css
+pages/all-projects/index.html
+pages/androon-rawalpindi/index.css
+pages/androon-rawalpindi/index.html
+pages/androon-rawalpindi/project.js
+pages/shama/index.css
+pages/shama/index.html
+pages/vanishing-stories/index.css
+pages/vanishing-stories/index.html
+project01/index.css
+project01/index.html
+project01/project.js
+project02/index.css
+project02/index.html
+project03/index.css
+project03/index.html
