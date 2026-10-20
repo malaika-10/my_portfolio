@@ -16,3 +16,7 @@ artwork for accessibility. No zoom interaction is added. Video depictions in the
 3D PDF remain still graphics; no playable media file was supplied with that PDF.
 
 Homepage featured cards are unchanged. Both detail pages return to All Projects.
+
+The 2D and 3D gallery cards now use the original PNG posters from
+2D and 3D portfolio.zip: 2d-portfolio-cover.png and 3d-portfolio-cover.png.
+Existing object-fit: contain preserves the full supplied artwork.
