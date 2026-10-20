@@ -1,5 +1,5 @@
 MALAIKA MAQSOOD PORTFOLIO — WEBSITE STRUCTURE AND EDITING GUIDE
-Prepared: 19 October 2026
+Updated: 20 October 2026
 Repository: https://github.com/malaika-10/my_portfolio
 Working branch: index-page-layout
 
@@ -48,6 +48,13 @@ my_portfolio/
     vanishing-stories/               Full linked Vanishing Stories case study
       index.html
       index.css
+
+  pages/2d-portfolio/                2D Portfolio: five PDF-based sections
+    index.html
+    index.css
+  pages/3d-portfolio/                3D Portfolio: six PDF-based sections
+    index.html
+    index.css
 
   project01/                         Standalone seven-slide Pindi presentation
     index.html
@@ -169,7 +176,8 @@ so visitors load the revised file rather than a cached copy.
 5. PROJECT PAGES AND THEIR DATA
 ===============================
 pages/all-projects/index.html
-  All publicly listed project cards. Currently Pindi, Shama and Vanishing Stories.
+  All publicly listed project cards. Currently Pindi, Shama, Vanishing Stories,
+  2D Portfolio and 3D Portfolio.
   This is a separate hard-coded list from the homepage. Adding a page folder
   does NOT automatically add it to this gallery.
 pages/all-projects/index.css
@@ -206,11 +214,21 @@ project02/index.html + index.css
 project03/index.html + index.css
   Four-slide standalone Shama version.
 
-All six detail pages currently have no click-to-enlarge or image viewer dialogs.
+All eight detail pages currently have no click-to-enlarge or image viewer dialogs.
 Video controls still work. Gallery project cards remain clickable to open pages.
 
 IMPORTANT: linked detail pages and standalone presentations are independent.
 Editing pages/shama/index.html does not update project03/index.html, for example.
+
+pages/2d-portfolio/index.html + index.css
+  Public 2D Portfolio: five sections covering Photoshop brushes, character
+  design, story book designs and character development.
+
+pages/3d-portfolio/index.html + index.css
+  Public 3D Portfolio: six sections covering Roti animation, its story,
+  character/product modelling and models/environments.
+  Both collections use assets/images/<slug>/hd-layout/ and appear only on
+  All Projects, not as extra homepage cards.
 
 6. TEXT INSIDE SLIDES VERSUS REAL HTML TEXT
 ==========================================
@@ -474,6 +492,28 @@ assets/fonts/Poppins-Regular.ttf
 assets/fonts/Raleway-OFL.txt
 assets/fonts/Raleway.ttf
 assets/images/.gitkeep
+assets/images/2d-portfolio/hd-layout/slide-01-hd.webp
+assets/images/2d-portfolio/hd-layout/slide-01.webp
+assets/images/2d-portfolio/hd-layout/slide-02-hd.webp
+assets/images/2d-portfolio/hd-layout/slide-02.webp
+assets/images/2d-portfolio/hd-layout/slide-03-hd.webp
+assets/images/2d-portfolio/hd-layout/slide-03.webp
+assets/images/2d-portfolio/hd-layout/slide-04-hd.webp
+assets/images/2d-portfolio/hd-layout/slide-04.webp
+assets/images/2d-portfolio/hd-layout/slide-05-hd.webp
+assets/images/2d-portfolio/hd-layout/slide-05.webp
+assets/images/3d-portfolio/hd-layout/slide-01-hd.webp
+assets/images/3d-portfolio/hd-layout/slide-01.webp
+assets/images/3d-portfolio/hd-layout/slide-02-hd.webp
+assets/images/3d-portfolio/hd-layout/slide-02.webp
+assets/images/3d-portfolio/hd-layout/slide-03-hd.webp
+assets/images/3d-portfolio/hd-layout/slide-03.webp
+assets/images/3d-portfolio/hd-layout/slide-04-hd.webp
+assets/images/3d-portfolio/hd-layout/slide-04.webp
+assets/images/3d-portfolio/hd-layout/slide-05-hd.webp
+assets/images/3d-portfolio/hd-layout/slide-05.webp
+assets/images/3d-portfolio/hd-layout/slide-06-hd.webp
+assets/images/3d-portfolio/hd-layout/slide-06.webp
 assets/images/about-portrait.jpg
 assets/images/androon-rawalpindi/chai-culture.webp
 assets/images/androon-rawalpindi/character-model-01.webp
@@ -654,6 +694,8 @@ assets/images/hero.jpg
 assets/images/project-androon.jpg
 assets/images/project-learning.jpg
 assets/images/project-shama.webp
+assets/images/project-thumbnails/2d-portfolio.webp
+assets/images/project-thumbnails/3d-portfolio.webp
 assets/images/project-thumbnails/androon-rawalpindi.png
 assets/images/project-thumbnails/shama.png
 assets/images/project-thumbnails/vanishing-stories-revised.png
@@ -787,6 +829,7 @@ assets/videos/rickshaw-tour.mp4
 docs/Website-Structure-and-Editing-Guide.txt
 docs/androon-media-assets.md
 docs/creative-profile-interaction.md
+docs/design-portfolios.md
 docs/downloads/Galiyan-Pindi-Diyan.pdf
 docs/downloads/README.md
 docs/downloads/Shama.pdf
@@ -798,6 +841,10 @@ docs/project03.md
 docs/shama-media-assets.md
 docs/vanishing-stories-media-assets.md
 index.html
+pages/2d-portfolio/index.css
+pages/2d-portfolio/index.html
+pages/3d-portfolio/index.css
+pages/3d-portfolio/index.html
 pages/all-projects/index.css
 pages/all-projects/index.html
 pages/androon-rawalpindi/index.css
